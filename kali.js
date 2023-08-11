@@ -1,7 +1,7 @@
 const commandInput = document.querySelector(".commandField");
 const output = document.querySelector(".output");
 const outputContainer = document.querySelector(".command-output");
-const commands = ["help", "clear", "connect", "contribute"];
+const commands = ["help", "clear", "connect", "contribute", "history" , "pwd"];
 const resetstr = outputContainer.innerHTML;
 const inside_terminal = document.getElementsByClassName("terminal-text-wrap")[0];
 
@@ -38,6 +38,20 @@ const contributionLink = () => {
     window.open("https://github.com/Uzumaki4303/Linux/");
 }
 
+// show command use in past (history)
+const showHistory = (messageBox) => {
+    //list down all history from array
+    messageBox.innerHTML += "<br>Command used in past: ";
+    history.forEach((cmd) => { 
+        messageBox.innerHTML += `<br> → ${cmd}`;
+    });    
+}
+
+const showPwd = (messageBox) => {
+    messageBox.innerHTML += "<br>Directory: home/kali/desktop";
+}
+
+
 // executes functions as per command match 
 const executeCommand = (cmd, messageBox) => {
     switch(cmd)
@@ -54,6 +68,13 @@ const executeCommand = (cmd, messageBox) => {
         case "contribute":
             contributionLink();
             break;
+        case "history":
+            showHistory(messageBox);
+            break;
+        case "pwd":
+            showPwd(messageBox)
+            break;
+        
     }
 }
 
@@ -68,6 +89,7 @@ commandInput.addEventListener("keydown", (e) => {
 
     if(e.key === "Enter" && inputCommand !== '')
     {
+        history.push(inputCommand);
 
         // create new element and append it on output 
         const createElement = output.cloneNode(true);
