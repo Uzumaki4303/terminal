@@ -1,0 +1,197 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+.nav{
+    background-color: rgb(0, 0, 0);
+    border-bottom: 2px solid red;
+    height: 50px;
+}
+.application{
+    width: 50px;
+    border-right: 2px solid green;
+    
+}
+#notepad,#firefox,#chrome,#terminal{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+#battery,#wifi{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+#wifi{
+    margin-left: 78%;
+}
+
+.wallpaper{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.icons{
+    position: absolute;
+    top: 10%;
+    margin-left: 15px;
+}
+
+#trash{
+    width: 60px;
+    height: 50px;
+}
+#settings{
+    margin-left: 5px;
+    margin-top: -6px;
+    width: 60px;
+    height: 60px;
+}
+#home{
+    margin-left: 5px;
+    margin-top: -6px;
+    width: 60px;
+    height: 60px;
+}
+#root{
+    margin-top: -20px;
+    width: 80px;
+    height: 80px;
+}
+
+/* Terminal file code */
+
+.container {
+    width: 600px;
+    height: 500px;
+    overflow-y: hidden;
+    border-radius: 10px;
+    opacity: 0.9;
+    color: white;
+    background-color: #222735;
+    margin-top: -300px;
+    margin-left: 300px;
+}
+.sticky-container {
+    margin-top: -20px;
+    position: sticky;
+    top: 0;
+    background-color: #222735;
+}
+.navbanner {
+    height: 30px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+
+}
+.logo {
+    width: 30px;
+    height: 30px;
+}
+.title {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+#username {
+    padding: 0 2px;
+    text-transform: lowercase;
+}
+.actionBtns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+.actionBtns svg {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.toolbanner {
+    margin-top: -20px;
+    padding: 4px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+.toolbanner > ul {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 12px;
+}
+.toolbanner > ul > li {
+    list-style-type: none;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+.toolbanner > ul > li:hover {
+    color: rgb(37, 37, 248);
+}
+
+.terminal-text-wrap {
+    padding: 12px;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}
+.command-output {
+    margin-bottom: 12px;
+}
+.command-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.commandLine {
+    display: inline-block;
+    white-space: nowrap;
+    color: green;
+    font-size: 20px;
+}
+.commandField {
+    width: 70%;
+    line-height: 1.4rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    color: lightgreen;
+    background-color: #222735;
+    outline: transparent;
+    border: transparent;
+}
+.outputText {
+    color: lightgreen;
+    line-height: 1.4rem;
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: transparent;
+}
+
+
+/* Terminal on the same page using animations */
+.container{
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    transform: translate(-50%, -50%);
+    margin: 0px 0px;
+    transition: left 0.3s ease-in-out, height 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.container.enable{
+    left: 50%;
+}
+
+.container.fullsize{
+    height: 90vh;
+    width: 90vw;
+    top: 45%;
+}
