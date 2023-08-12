@@ -1,9 +1,10 @@
 const commandInput = document.querySelector(".commandField");
 const output = document.querySelector(".output");
 const outputContainer = document.querySelector(".command-output");
-const commands = ["help", "clear", "connect", "contribute", "history" , "pwd"];
-const resetstr = outputContainer.innerHTML;
+// const resetstr = outputContainer.innerHTML;
 const inside_terminal = document.getElementsByClassName("terminal-text-wrap")[0];
+const commands = ["help", "clear", "connect", "contribute", "history" , "pwd"];
+const history = [];
 
 
 // help cmd output 
@@ -77,12 +78,9 @@ const executeCommand = (cmd, messageBox) => {
         
     }
 }
-
+// new code 
 // validate the commands 
 commandInput.addEventListener("keydown", (e) => {
-    
-    // console.log(inside_terminal.scrollHeight)
-    
     
     // get command from input box 
     const inputCommand = commandInput.value.trim();
@@ -90,7 +88,6 @@ commandInput.addEventListener("keydown", (e) => {
     if(e.key === "Enter" && inputCommand !== '')
     {
         history.push(inputCommand);
-
         // create new element and append it on output 
         const createElement = output.cloneNode(true);
         const outputTextMessage = createElement.querySelector(".outputText");
@@ -108,11 +105,10 @@ commandInput.addEventListener("keydown", (e) => {
 
         if(inputCommand != "clear")
             outputContainer.append(createElement);
-
     }
-    // console.log(inside_terminal.scrollHeight)
-    inside_terminal.scrollTop = inside_terminal.scrollHeight
-    // console.log(inside_terminal.scrollTop)
+      // console.log(inside_terminal.scrollHeight)
+      inside_terminal.scrollTop = inside_terminal.scrollHeight;
+      // console.log(inside_terminal.scrollTop)
 });
 
 function showAlert(){
@@ -121,7 +117,7 @@ function showAlert(){
 
 // New functions added by animative one page terminal
 
-const terminal = document.getElementsByClassName("container")[0]
+const terminal = document.querySelectorAll(".container")[0]
 
 // shows/hides terminal when icon is clicked
 const showTerminal = () => {
